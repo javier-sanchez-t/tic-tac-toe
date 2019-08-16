@@ -1,13 +1,128 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root{
+  --color-naranja: #fca311;
+  --color-marino: #14213d;
+  --color-amarillo: #ffce5b;
+  --color-gris: #e5e5e5;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
+
+  body {
+    font: 14px "Century Gothic", Futura, sans-serif;
+    margin: 0px;
+    height: 100vh;
+    background-color: var(--color-gris);
+  }
+
+  #root{
+    height: 100%;
+  }
+  
+  ol, ul {
+    padding-left: 30px;
+  }
+
+  .board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+  
+  .status {
+    margin-bottom: 10px;
+  }
+  
+  .square {
+    background: #fff;
+    border: 1px solid #999;
+    float: left;
+    font-size: 80px;
+    font-weight: bold;
+    line-height: 34px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 95px;
+    height: 95px;
+  }
+
+  .square-winner{
+    background-color: blue;
+  }
+  
+  .square:focus {
+    outline: none;
+  }
+  
+  .kbd-navigation .square:focus {
+    background: #ddd;
+  }
+
+  .game {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    margin-top: 10%;
+  }
+
+  .game-board{
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .game-info {
+    margin-left: 20px;
+    margin-top: 5%;
+    background-color: var(--color-naranja);
+    padding: 20px;
+  }
+
+  .colGame{
+    text-align: center;
+  }
+  
+  .button-selected{
+    font-weight: bold;
+  }
+
+  .icon{
+    width:24px;
+    height:24px
+  }
+
+  .title{
+    color: white;
+    font-size: 55px;
+    font-weight: bold;
+    text-align: center;
+    background-color: var(--color-marino);
+    padding: 1%;
+    height: 110px;
+    line-height: 180%;
+  }
+
+  .content{
+    height: 100%;
+  }
+
+  .row1{
+    border-bottom-style: solid;
+    border-width: 0px 8px 0px 8px;
+  }
+
+  .row2{
+    border-bottom-style: solid;
+    border-width: 8px 0px 8px 0px;
+  }
+
+  .row3{
+    border-bottom-style: solid black;
+    border-width: 8px;
+  }
+
+  .btn{
+    width: 100%;
+    margin-top: 5px;
+  }
