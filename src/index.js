@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import { faArrowCircleDown } from "@fortawesome/free-solid-svg-icons";
 import { faArrowCircleUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Container, Row, Col } from 'react-bootstrap'
+import Confetti from 'react-confetti';
+import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 
@@ -125,19 +126,24 @@ class Game extends React.Component {
             cssClassButton = cssClassButton + ' btn btn-warning';
 
             return (
-                <li key={move}>
+                <div key={move}>
                     <button className={cssClassButton} onClick={() => { this.jumpTo(move) }}>{desc}</button>
-                </li>
+                </div>
             )
         });
 
         let status;
         let pathWinner;
+        let confettiWinner;
         if (!winner && this.state.stepNumber === 9) {
             status = '¡Game over! Result: Tie';
         } else if (winner) {
             status = 'Winner: ' + winner.winner;
             pathWinner = winner.pathWinner;
+            confettiWinner = <Confetti
+                width={1000}
+                height={1000}
+            />;
         } else {
             status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
             pathWinner = null;
@@ -153,6 +159,8 @@ class Game extends React.Component {
 
         return (
             <div>
+                {confettiWinner}
+
                 <Container className="title" fluid={true}>
                     <Row>
                         <Col sm={12}>Tic Tac Toe</Col>
@@ -170,11 +178,11 @@ class Game extends React.Component {
                                         onClick={(i, positionSquare) => { this.handleClick(i, positionSquare) }} />
                                 </div>
                             </div>
+                            <div className="status">{status}</div>
                         </Col>
                         <Col sm={6}>
                             <div className="game-info">
-                                <div>{status}</div>
-                                <ol>{moves}</ol>
+                                {moves}
                                 <button className={"btn btn-success"} onClick={() => {
                                     this.setState({
                                         orderAscMoves: !this.state.orderAscMoves
