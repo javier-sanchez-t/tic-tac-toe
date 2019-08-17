@@ -141,8 +141,8 @@ class Game extends React.Component {
             status = 'Winner: ' + winner.winner;
             pathWinner = winner.pathWinner;
             confettiWinner = <Confetti
-                width={1000}
-                height={1000}
+                width={window.outerWidth}
+                height={window.outerHeight}
             />;
         } else {
             status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
